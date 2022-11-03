@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
+import submitBoard from "@/actions/submitBoard";
+import {connect} from "react-redux";
 
 const Button = styled.button`
   width: 120px;
@@ -23,15 +25,33 @@ const Button = styled.button`
 `
 
 
-function CreateForm() {
+function CreateForm({submitBoard}) {
+    const [state, setState] = useState('');
+    const changeInputHandler = (event) => {
+        setState(event.target.value);
+    }
+
+    const submitHandler = event => {
+        event.preventDefault()
+
+        const title = state.trim();
+
+        if (title) {
+            submitBoard(title);
+            setState('');
+        }
+    }
+
+
     return (
-        <form
-            // onSubmit={handleSubmit}
-        >
-            <input/>
-            <Button>Создать</Button>
+        <form onSubmit={submitHandler}>
+            <input
+                type="text"
+                onChange={changeInputHandler}
+            />
+            <Button type="submit">Создать</Button>
         </form>
     );
 }
 
-export default CreateForm;
+export default connect(null, {submitBoard})(CreateForm);

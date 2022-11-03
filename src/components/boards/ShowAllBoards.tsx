@@ -1,8 +1,14 @@
 import React from 'react';
-import CreateBoard from "@/components/boards/CreateBoard";
+import { Card, Title } from '@/components/boards/styles/styledCard'
 
-function ShowAllBoards() {
-    return <CreateBoard />
+function ShowAllBoards({collection}) {
+    return collection.map((bord) => {
+         return (
+             <Card key={bord.id}>
+                 <Title>{bord.title}</Title>
+             </Card>
+             )
+    })
 }
 
 export default ShowAllBoards;

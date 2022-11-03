@@ -1,7 +1,13 @@
 import styled from "styled-components";
 
+export const WrapOfCards = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+`
+
 export const Card = styled.div`
-  width: 345px;
+  width: 325px;
   height: auto;
   margin: 20px;
   background: #fff;

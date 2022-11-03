@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Title } from './styledCard';
+import { Card, Title } from '../styles/styledCard';
 import styled from "styled-components";
 import closeIcon from "@/assets/closeIcon.svg";
 import CreateForm from "@/components/boards/creation/CreateForm";
