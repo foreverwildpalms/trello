@@ -31,5 +31,6 @@
     "./src/**/*.jsx",
     "./webpack-configs/*.ts"
   ],
+  "files": ["custom.d.ts"],
   "exclude": ["node_modules"]
 }

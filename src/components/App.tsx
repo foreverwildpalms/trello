@@ -3,13 +3,12 @@ import { Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from "@/components/Header";
 import NotFound from "@/components/NotFound";
-import BoardContainer from "@/components/boards/BoardContainer";
+import Boards from "@/components/boards/Boards";
 import ShowActiveBoard from "@/components/boards/ShowActiveBoard";
 
 const StyledApp = styled.div`
   background: #f5f5f5;
   min-height: 100vh;
-  font-family: HelveticaNeue, sans-serif;
 `;
 
 const StyledContainer = styled.div`
@@ -24,7 +23,7 @@ const App = () => {
             <StyledContainer>
                 <Header />
                 <Routes>
-                    <Route path="/" element={<BoardContainer />} />
+                    <Route path="/" element={<Boards />} />
                     <Route path="/b" element={<ShowActiveBoard />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
