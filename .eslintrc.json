@@ -27,7 +27,7 @@
     "rules": {
         "indent": 0,
         "linebreak-style": 0,
-        "no-console": ["warn"]
+        "react/no-unescaped-entities": 0
     },
     "settings": {
         "react": {
