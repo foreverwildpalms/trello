@@ -1,12 +1,15 @@
 import React from 'react';
 import { List } from "@/components/boards/styles/styledCard";
+import { ListTitle } from "@/components/boards/styles/styledCard";
 
 const ListItem = ({
                       // id,
                       name}) => {
     return (
         <>
-            <List>{name}</List>
+            <List>
+                <ListTitle>{name}</ListTitle>
+            </List>
             {/*<input*/}
             {/*    type="text"*/}
             {/*    onChange={changeInputHandler}*/}

@@ -31,6 +31,7 @@ export const Card = styled.div`
 `;
 
 export const Top = styled.div`
+  padding-bottom: 4px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,6 +45,7 @@ export const Title = styled.h3`
   font-size: 22px;
   color: #4d4d4d;
 `
+
 export const CloseBoardIcon = styled.img`
   width: 24px;
   height: 24px;
@@ -68,14 +70,16 @@ export const NameBoard = styled.h5`
 export const List = styled.div`
   width: 325px;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: relative;
   margin: 20px;
   background-color: #ead7d7;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   transition: all 150ms ease-in-out;
   cursor: pointer;
-  height: 100px;
-  padding: 10px 40px;
+  min-height: 120px;
+  padding: 20px 40px;
   align-items: center;
   border-radius: 5px;
 
@@ -88,11 +92,24 @@ export const List = styled.div`
 `
 
 export const CloseListIcon = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   padding: 5px;
   transition: all 200ms ease-in-out;
-  position: absolute;
-  right: 10px;
-  top: 10px;
 `
+export const ListTitle = styled.h5`
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #4d4d4d;
+`
+
+export const AddListIcon = styled.h5`
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  color: #4d4d4d;
+`
+

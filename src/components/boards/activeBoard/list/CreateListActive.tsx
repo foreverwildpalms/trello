@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {List, CloseListIcon, Body} from "@/components/boards/styles/styledCard";
+import {List, CloseListIcon, Body, Top, ListTitle} from "@/components/boards/styles/styledCard";
 import closeIcon from "@/assets/closeIcon.svg";
 import disableListEditMode from "@/actions/disableListEditMode";
 import submitList from "@/actions/submitList";
@@ -22,10 +22,13 @@ const CreateListActive = ({submitList, disableListEditMode}) => {
 
     return (
         <List>
-            <CloseListIcon
-                src={closeIcon}
-                onClick={disableListEditMode}
-            />
+            <Top>
+                <ListTitle>Новый список</ListTitle>
+                <CloseListIcon
+                    src={closeIcon}
+                    onClick={disableListEditMode}
+                />
+            </Top>
             <Body>
                 <form onSubmit={submitHandler}>
                     <input
