@@ -4,7 +4,7 @@ import uniqueId from 'lodash/uniqueId';
 
 const ListReducer = (state = {}, action) => {
     switch (action.type) {
-        case SUBMIT_LIST:
+        case SUBMIT_LIST: {
             const listId = uniqueId("list_");
 
             return {
@@ -15,6 +15,7 @@ const ListReducer = (state = {}, action) => {
                     cards: []
                 }
             };
+        }
 
         default:
             return state

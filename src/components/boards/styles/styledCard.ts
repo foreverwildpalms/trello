@@ -20,12 +20,13 @@ export const Card = styled.div`
   align-items: center;
   border-radius: 5.5px;
   cursor: pointer;
-  transition: 200ms ease-in-out;
+  transition: 300ms ease-in-out;
   font-weight: 900;
+  
   &:hover {
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    transition: 200ms ease-in-out;
-    transform: scale(1.10);
+    transition: 300ms ease-in-out;
+    transform: scale(1.05);
   }
 `;
 
@@ -65,6 +66,7 @@ export const NameBoard = styled.h5`
 `
 
 export const List = styled.div`
+  width: 325px;
   display: flex;
   position: relative;
   margin: 20px;

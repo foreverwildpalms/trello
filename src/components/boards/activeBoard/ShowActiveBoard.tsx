@@ -6,6 +6,7 @@ import {useParams} from "react-router-dom";
 import { ActiveTitle, ListWrapper } from "@/components/boards/styles/styledActivePage"
 import CreateList from "@/components/boards/activeBoard/list/CreateList";
 import CreateListActive from "@/components/boards/activeBoard/list/CreateListActive";
+import Lists from "@/components/boards/activeBoard/list/Lists";
 
 const ShowActiveBoard = ({activeBoard, selectActiveBoard, enableListEditMode}) => {
     const params = useParams();
@@ -24,6 +25,7 @@ const ShowActiveBoard = ({activeBoard, selectActiveBoard, enableListEditMode}) =
         <>
             <ActiveTitle>{activeBoard.title}</ActiveTitle>
             <ListWrapper>
+                <Lists />
                 {activeBoard.isEditingList
                     ? <CreateListActive />
                     : <CreateList onClick={enableListEditMode} />

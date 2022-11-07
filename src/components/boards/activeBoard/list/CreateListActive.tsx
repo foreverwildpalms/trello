@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {List, CloseListIcon, Top, Body} from "@/components/boards/styles/styledCard";
+import {List, CloseListIcon, Body} from "@/components/boards/styles/styledCard";
 import closeIcon from "@/assets/closeIcon.svg";
 import disableListEditMode from "@/actions/disableListEditMode";
 import submitList from "@/actions/submitList";
@@ -13,7 +13,11 @@ const CreateListActive = ({submitList, disableListEditMode}) => {
 
     const submitHandler = event => {
         event.preventDefault();
-        submitList(state);
+        const title = state.trim();
+        if (title) {
+            submitList(state);
+            setState('');
+        }
     }
 
     return (
@@ -27,6 +31,7 @@ const CreateListActive = ({submitList, disableListEditMode}) => {
                     <input
                         type="text"
                         onChange={changeInputHandler}
+                        value={state}
                     />
                 </form>
             </Body>
