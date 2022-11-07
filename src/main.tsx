@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Store from "@/Store";
 
 const root = createRoot(document.getElementById('root'));
+
 root.render(
     <React.StrictMode>
         <Provider store={Store}>

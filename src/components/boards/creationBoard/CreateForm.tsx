@@ -32,7 +32,7 @@ function CreateForm({submitBoard}) {
     }
 
     const submitHandler = event => {
-        event.preventDefault()
+        event.preventDefault();
 
         const title = state.trim();
 

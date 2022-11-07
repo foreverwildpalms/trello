@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Header from "@/components/Header";
 import NotFound from "@/components/NotFound";
 import Boards from "@/components/boards/Boards";
-import ShowActiveBoard from "@/components/boards/ShowActiveBoard";
+import ShowActiveBoard from "@/components/boards/activeBoard/ShowActiveBoard";
 
 const StyledApp = styled.div`
   background: #f5f5f5;
@@ -23,7 +23,7 @@ const App = () => {
                 <Header />
                 <Routes>
                     <Route path="/" element={<Boards />} />
-                    <Route path="/b" element={<ShowActiveBoard />} />
+                    <Route path="/b/:id" element={<ShowActiveBoard />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </StyledContainer>

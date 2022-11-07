@@ -11,7 +11,5 @@ export default function submitBoard(title) {
         }
 
         dispatch({ type: PUT_BOARD_INTO_COLLECTION, payload: newBoard });
-
-        console.log(Store.getState());
     }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import ShowAllBoards from "@/components/boards/ShowAllBoards";
-import CreateBoard from "@/components/boards/creation/CreateBoard";
+import CreateBoard from "@/components/boards/creationBoard/CreateBoard";
 import { connect } from 'react-redux'
 import { WrapOfCards } from "@/components/boards/styles/styledCard"
 
