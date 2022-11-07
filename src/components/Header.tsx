@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledHeader = styled.div`
   width: 100%;
@@ -17,9 +18,11 @@ const StyledLogo = styled.h1`
 
 const Header = () => {
     return (
-        <StyledHeader>
-            <StyledLogo>Trello</StyledLogo>
-        </StyledHeader>
+        <Link to='/'>
+            <StyledHeader>
+                <StyledLogo>Trello</StyledLogo>
+            </StyledHeader>
+        </Link>
     )
 };
 
