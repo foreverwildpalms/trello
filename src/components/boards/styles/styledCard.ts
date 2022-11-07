@@ -6,6 +6,10 @@ export const WrapOfCards = styled.div`
   align-items: flex-start;
 `
 
+export const StyledForm = styled.form`
+  width: 100%;
+`
+
 export const Card = styled.div`
   width: 325px;
   height: auto;
@@ -67,6 +71,8 @@ export const NameBoard = styled.h5`
   margin: 0 auto 5px 0;
 `
 
+// LISTS
+
 export const List = styled.div`
   width: 325px;
   display: flex;
@@ -78,7 +84,7 @@ export const List = styled.div`
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   transition: all 150ms ease-in-out;
   cursor: pointer;
-  min-height: 120px;
+  min-height: 124px;
   padding: 20px 40px;
   align-items: center;
   border-radius: 5px;
@@ -105,11 +111,38 @@ export const ListTitle = styled.h5`
   color: #4d4d4d;
 `
 
+export const ListInput = styled.input`
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  height: 34px;
+  outline:none;
+  padding: 0 8px;
+`
+
 export const AddListIcon = styled.h5`
   margin: 0;
   font-family: 'Manrope', sans-serif;
   font-weight: 400;
   font-size: 40px;
   color: #4d4d4d;
+`
+
+// ITEMS
+
+export const ItemInput = styled.input`
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  height: 34px;
+  outline:none;
+  padding: 0 8px;
 `
 

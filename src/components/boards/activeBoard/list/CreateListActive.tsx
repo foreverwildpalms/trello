@@ -1,9 +1,17 @@
 import React, {useState} from 'react';
-import {List, CloseListIcon, Body, Top, ListTitle} from "@/components/boards/styles/styledCard";
 import closeIcon from "@/assets/closeIcon.svg";
 import disableListEditMode from "@/actions/disableListEditMode";
 import submitList from "@/actions/submitList";
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import {
+    List,
+    CloseListIcon,
+    Body,
+    Top,
+    ListTitle,
+    ListInput,
+    StyledForm
+} from "@/components/boards/styles/styledCard";
 
 const CreateListActive = ({submitList, disableListEditMode}) => {
     const [state, setState] = useState('');
@@ -30,13 +38,14 @@ const CreateListActive = ({submitList, disableListEditMode}) => {
                 />
             </Top>
             <Body>
-                <form onSubmit={submitHandler}>
-                    <input
+                <StyledForm onSubmit={submitHandler}>
+                    <ListInput
                         type="text"
                         onChange={changeInputHandler}
                         value={state}
+                        placeholder="Название списка"
                     />
-                </form>
+                </StyledForm>
             </Body>
         </List>
     );

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { SUBMIT_LIST } from "@/actions/types";
+import { SUBMIT_LIST, SUBMIT_ITEM } from "@/actions/types";
 import uniqueId from 'lodash/uniqueId';
 
 const ListReducer = (state = {}, action) => {
@@ -12,9 +12,25 @@ const ListReducer = (state = {}, action) => {
                 [listId]: {
                     name: action.payload,
                     id: listId,
-                    cards: []
+                    items: []
                 }
             };
+        }
+
+        case SUBMIT_ITEM: {
+            const itemId = uniqueId("item_");
+            const { listId, itemName } = action.payload;
+            const currentList = state[listId];
+
+            console.log(currentList);
+
+            currentList.items.push({
+                name: itemName, itemId, listId, isArchived: false
+            })
+            return {
+                ...state,
+                [listId]: currentList,
+            }
         }
 
         default:
