@@ -8,14 +8,20 @@ const Lists = ({ activeBoardData }) => {
         const mappedList = mapValues(activeBoardData.listItems, list => list.name); // ?
         const mappedKeys = Object.keys(mappedList)
 
-        return mappedKeys.map((id, i) => {
-            return <ListItem id={id} key={i} name={mappedList[id]} />
+        return mappedKeys.map((id) => {
+            return <ListItem
+                // id={id}
+                key={id}
+                name={mappedList[id]}
+            />
         })
 
     }
 
     return (
-        renderListItems()
+        <>
+            {renderListItems()}
+        </>
     );
 }
 
