@@ -9,7 +9,6 @@ export const WrapOfCards = styled.div`
 export const StyledForm = styled.form`
   width: 100%;
 `
-
 export const Card = styled.div`
   width: 325px;
   height: auto;
@@ -145,4 +144,13 @@ export const ItemInput = styled.input`
   outline:none;
   padding: 0 8px;
 `
+
+export const ItemText = styled.p`
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  margin: 4px 0;
+  color: #4d4d4d;
+`
+
 

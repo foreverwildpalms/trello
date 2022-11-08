@@ -25,7 +25,7 @@ export default function (state = initialState, action) {
                 ...state,
                 isBoardOpen: false,
                 title: action.payload,
-                id: uniqueId(''),
+                id: `${uniqueId('')}` + Math.floor(Math.random() * (100)), // имитация оригиналного id
             }
         default:
             return state

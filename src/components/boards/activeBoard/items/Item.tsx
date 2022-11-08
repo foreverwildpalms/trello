@@ -1,8 +1,9 @@
 import React from 'react';
+import { ItemText } from "@/components/boards/styles/styledCard";
 
 const Item = ({title}) => {
     return (
-        <div>{title}</div>
+        <ItemText>{title}</ItemText>
     );
 }
 

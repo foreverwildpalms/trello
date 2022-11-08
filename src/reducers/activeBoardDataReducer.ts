@@ -1,9 +1,13 @@
 import { combineReducers } from 'redux';
-import { SUBMIT_LIST, SUBMIT_ITEM } from "@/actions/types";
+import { SUBMIT_LIST, SUBMIT_ITEM, SELECT_ACTIVE_BOARD } from "@/actions/types";
 import uniqueId from 'lodash/uniqueId';
 
 const ListReducer = (state = {}, action) => {
     switch (action.type) {
+        case SELECT_ACTIVE_BOARD:
+            return action.payload.data || [];
+
+
         case SUBMIT_LIST: {
             const listId = uniqueId("list_");
 
@@ -32,6 +36,8 @@ const ListReducer = (state = {}, action) => {
                 [listId]: currentList,
             }
         }
+
+
 
         default:
             return state

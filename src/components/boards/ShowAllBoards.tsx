@@ -1,16 +1,9 @@
 import React from 'react';
-import { Card, Title } from '@/components/boards/styles/styledCard';
-import { Link } from 'react-router-dom';
+import Board from "@/components/boards/Board";
 
 function ShowAllBoards({collection}) {
-    return collection.map((bord) => {
-         return (
-             <Link to={`/b/${bord.id}`} key={bord.id}>
-                 <Card>
-                     <Title>{bord.title}</Title>
-                 </Card>
-             </Link>
-             )
+    return collection.map((board) => {
+        return <Board key={board.id} id={board.id} title={board.title} />
     })
 }
 

@@ -7,8 +7,9 @@ export const setData = boards => {
         })
         const serializeActiveBoardState = JSON.stringify(boards)
         localStorage.setItem('boardsCollection', serializeActiveBoardState);
-    } catch (err) {
-        new Error(err);
+    }
+    catch (err) {
+        console.log(err);
     }
 }
 

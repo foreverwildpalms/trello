@@ -12,3 +12,12 @@ export const ListWrapper = styled.div`
   align-items: flex-start;
   flex-wrap: wrap;
 `
+
+export const DeleteBtn = styled.div`
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  color: #ead7d7;
+  position: absolute;
+  bottom: 18px;
+  cursor: pointer;
+`

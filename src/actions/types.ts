@@ -9,5 +9,6 @@ export const ENABLE_LIST_EDIT_MODE = 'ENABLE_LIST_EDIT_MODE';
 export const DISABLE_LIST_EDIT_MODE = 'DISABLE_LIST_EDIT_MODE';
 
 export const SUBMIT_LIST = 'SUBMIT_LIST';
-
 export const SUBMIT_ITEM = 'SUBMIT_ITEM';
+
+export const DELETE_BOARD = 'DELETE_BOARD';

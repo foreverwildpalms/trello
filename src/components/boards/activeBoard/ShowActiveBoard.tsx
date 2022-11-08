@@ -7,6 +7,7 @@ import { ActiveTitle, ListWrapper } from "@/components/boards/styles/styledActiv
 import CreateList from "@/components/boards/activeBoard/list/CreateList";
 import CreateListActive from "@/components/boards/activeBoard/list/CreateListActive";
 import Lists from "@/components/boards/activeBoard/list/Lists";
+import DeleteBoard from "@/components/boards/activeBoard/DeleteBoard";
 
 const ShowActiveBoard = ({activeBoard, selectActiveBoard, enableListEditMode}) => {
     const params = useParams();
@@ -31,6 +32,7 @@ const ShowActiveBoard = ({activeBoard, selectActiveBoard, enableListEditMode}) =
                     : <CreateList onClick={enableListEditMode} />
                 }
             </ListWrapper>
+            <DeleteBoard id={activeBoard.id} />
         </>
     )
 }
