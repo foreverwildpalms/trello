@@ -82,8 +82,7 @@ export const List = styled.div`
   background-color: #ead7d7;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   transition: all 150ms ease-in-out;
-  cursor: pointer;
-  min-height: 124px;
+  min-height: 150px;
   padding: 20px 40px;
   align-items: center;
   border-radius: 5px;
@@ -128,6 +127,15 @@ export const AddListIcon = styled.h5`
   font-weight: 400;
   font-size: 40px;
   color: #4d4d4d;
+`
+
+export const DeleteListBtn = styled.div`
+  margin-top: 20px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #868585;
+  cursor: pointer;
 `
 
 // ITEMS

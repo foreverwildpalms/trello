@@ -1,5 +1,10 @@
 import { combineReducers } from 'redux';
-import { SUBMIT_LIST, SUBMIT_ITEM, SELECT_ACTIVE_BOARD } from "@/actions/types";
+import {
+    SUBMIT_LIST,
+    SUBMIT_ITEM,
+    SELECT_ACTIVE_BOARD,
+    DELETE_LIST
+} from "@/actions/types";
 import uniqueId from 'lodash/uniqueId';
 
 const ListReducer = (state = {}, action) => {
@@ -26,8 +31,6 @@ const ListReducer = (state = {}, action) => {
             const { listId, itemName } = action.payload;
             const currentList = state[listId];
 
-            console.log(currentList);
-
             currentList.items.push({
                 name: itemName, itemId, listId, isArchived: false
             })
@@ -37,7 +40,13 @@ const ListReducer = (state = {}, action) => {
             }
         }
 
-
+        case DELETE_LIST: {
+            const newState = {...state}
+            delete newState[action.payload];
+            return {
+                ...newState
+            }
+        }
 
         default:
             return state

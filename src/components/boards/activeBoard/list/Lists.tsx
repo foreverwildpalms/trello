@@ -9,7 +9,7 @@ const Lists = ({ activeBoardData }) => {
         const mappedKeys = Object.keys(mappedList)
 
         return mappedKeys.map((id) => {
-            return <ListItem id={id} key={id} name={mappedList[id]}/>
+            return <ListItem id={id} key={id} name={mappedList[id]} />
         })
 
     }

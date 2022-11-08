@@ -1,17 +1,19 @@
 import React from 'react';
-import { List } from "@/components/boards/styles/styledCard";
-import { ListTitle } from "@/components/boards/styles/styledCard";
+import { List, DeleteListBtn, ListTitle } from "@/components/boards/styles/styledCard";
 import CreateItem from "@/components/boards/activeBoard/items/CreateItem";
+import { connect } from 'react-redux';
+import deleteList from "@/actions/deleteList";
 
-const ListItem = ({id, name}) => {
+const ListItem = ({ id, name, deleteList }) => {
     return (
         <>
             <List>
                 <ListTitle>{name}</ListTitle>
                 <CreateItem listId={id} />
+                <DeleteListBtn onClick={() => deleteList(id)}>Удалить список</DeleteListBtn>
             </List>
         </>
     );
 }
 
-export default ListItem;
+export default connect(null, { deleteList })(ListItem);

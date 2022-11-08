@@ -12,3 +12,4 @@ export const SUBMIT_LIST = 'SUBMIT_LIST';
 export const SUBMIT_ITEM = 'SUBMIT_ITEM';
 
 export const DELETE_BOARD = 'DELETE_BOARD';
+export const DELETE_LIST = 'DELETE_LIST';
