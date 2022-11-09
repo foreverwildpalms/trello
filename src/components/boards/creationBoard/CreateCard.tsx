@@ -4,14 +4,13 @@ import { connect } from 'react-redux';
 import creatingBoard from '@/actions/creatingBoard'
 
 interface DispatchProps {
-    creatingBoard: () => void
+    creatingBoard: () => {
+        type: string,
+        payload: boolean
+    }
 }
 
-interface ICreateCard {
-    creatingBoard: DispatchProps
-}
-
-const CreateCard: FC<ICreateCard> = ({ creatingBoard }) => {
+const CreateCard: FC<DispatchProps> = ({ creatingBoard }) => {
     return <Card onClick={creatingBoard}>
         <Title>Создай новую доску...</Title>
     </Card>
