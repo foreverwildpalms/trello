@@ -3,7 +3,7 @@
     "target": "es6",
     "module": "es6",
     "strict": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "noImplicitReturns": true,
     "jsx": "react",
     "importHelpers": true,

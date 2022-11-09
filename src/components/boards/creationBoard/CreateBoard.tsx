@@ -1,17 +1,29 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { connect } from 'react-redux'
 import CreateCardActive from "@/components/boards/creationBoard/CreateCardActive";
 import CreateCard from "@/components/boards/creationBoard/CreateCard";
+import {IRootReducer} from "@/reducers/types";
 
-const CreateBoard = ({ newBoard }) => {
+interface INewBoard {
+    isBoardOpen: boolean,
+    title: string | null,
+    id: string | null,
+    success: boolean,
+}
+
+interface ICreateBoard {
+    newBoard: INewBoard
+}
+
+const CreateBoard: FC<ICreateBoard> = ({ newBoard }) => {
     return newBoard.isBoardOpen
         ? <CreateCardActive />
         : <CreateCard />
 }
 
-const mapStateToProps = ({ newBoard }) => {
+const mapStateToProps = (state: IRootReducer) => {
     return {
-        newBoard
+        newBoard: state.newBoard
     }
 }
 

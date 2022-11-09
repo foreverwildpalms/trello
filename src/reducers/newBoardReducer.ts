@@ -3,8 +3,8 @@ import uniqueId from 'lodash/uniqueId';
 
 const initialState = {
     isBoardOpen: false,
-    title: null,
-    id: null,
+    title: '',
+    id: '',
     success: false,
 }
 

@@ -1,12 +1,20 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { Card, Title } from '../styles/styledCard';
 import { connect } from 'react-redux';
 import creatingBoard from '@/actions/creatingBoard'
 
-const CreateCard = ({ creatingBoard }) => {
+interface DispatchProps {
+    creatingBoard: () => void
+}
+
+interface ICreateCard {
+    creatingBoard: DispatchProps
+}
+
+const CreateCard: FC<ICreateCard> = ({ creatingBoard }) => {
     return <Card onClick={creatingBoard}>
         <Title>Создай новую доску...</Title>
     </Card>
 }
 
-export default connect(null, { creatingBoard })(CreateCard);
+export default connect<null, DispatchProps>(null, { creatingBoard })(CreateCard);

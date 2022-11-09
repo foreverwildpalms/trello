@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {FC} from 'react';
 import ShowAllBoards from "@/components/boards/ShowAllBoards";
 import CreateBoard from "@/components/boards/creationBoard/CreateBoard";
 import { connect } from 'react-redux'
 import { WrapOfCards } from "@/components/boards/styles/styledCard"
+import {ICollection} from "@/components/boards/types";
 
-function Boards({collection}) {
+type IBoards = {
+    collection: ICollection
+}
+
+const Boards: FC<IBoards> = ({collection}) => {
     return (
         <WrapOfCards>
             <CreateBoard />

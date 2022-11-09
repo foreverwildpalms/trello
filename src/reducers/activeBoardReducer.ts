@@ -6,8 +6,8 @@ import {
 } from '@/actions/types';
 
 const initialState = {
-    title: null,
-    id: null,
+    title: '',
+    id: '',
     isFetching: false,
     isEditingList: false,
 }
