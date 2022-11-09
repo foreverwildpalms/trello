@@ -4,7 +4,6 @@ import CreateBoard from "@/components/boards/creationBoard/CreateBoard";
 import { connect } from 'react-redux'
 import { WrapOfCards } from "@/components/boards/styles/styledCard"
 
-
 function Boards({collection}) {
     return (
         <WrapOfCards>
