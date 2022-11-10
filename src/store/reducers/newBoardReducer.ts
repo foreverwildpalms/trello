@@ -1,26 +1,27 @@
-import { CANCEL_CREATING_BOARD, CREATING_BOARD, SUBMIT_BOARD } from "@/actions/types";
 import uniqueId from 'lodash/uniqueId';
+import { BoardAction, BoardState, BoardActionTypes } from "@/store/types/newBoard";
 
-const initialState = {
+
+const initialState: BoardState = {
     isBoardOpen: false,
     title: '',
     id: '',
     success: false,
 }
 
-export default function (state = initialState, action) {
+export default function (state: BoardState = initialState, action: BoardAction): BoardState {
     switch (action.type) {
-        case CREATING_BOARD:
+        case BoardActionTypes.CREATING_BOARD:
             return {
                 ...state,
                 isBoardOpen: true,
             }
-        case CANCEL_CREATING_BOARD:
+        case BoardActionTypes.CANCEL_CREATING_BOARD:
             return {
                 ...state,
                 isBoardOpen: false,
             }
-        case SUBMIT_BOARD:
+        case BoardActionTypes.SUBMIT_BOARD:
             return {
                 ...state,
                 isBoardOpen: false,

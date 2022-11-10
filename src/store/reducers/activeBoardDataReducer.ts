@@ -1,21 +1,16 @@
 import { combineReducers } from 'redux';
-import {
-    SUBMIT_LIST,
-    SUBMIT_ITEM,
-    SELECT_ACTIVE_BOARD,
-    DELETE_LIST
-} from "@/actions/types";
 import uniqueId from 'lodash/uniqueId';
+import {ActiveBoardTypes, BoardAction, BoardDataActionTypes, List, Lists} from "@/store/types/boardData";
 
-const ListReducer = (state = {}, action) => {
+const initialState = {};
+
+const ListReducer = (state: Lists = initialState, action: BoardAction): Lists => {
     switch (action.type) {
-        case SELECT_ACTIVE_BOARD:
+        case ActiveBoardTypes.SELECT_ACTIVE_BOARD:
             return action.payload.data || [];
 
-
-        case SUBMIT_LIST: {
+        case BoardDataActionTypes.SUBMIT_LIST: {
             const listId = uniqueId("list_");
-
             return {
                 ...state,
                 [listId]: {
@@ -26,11 +21,10 @@ const ListReducer = (state = {}, action) => {
             };
         }
 
-        case SUBMIT_ITEM: {
+        case BoardDataActionTypes.SUBMIT_ITEM: {
             const itemId = uniqueId("item_");
             const { listId, itemName } = action.payload;
-            const currentList = state[listId];
-
+            const currentList: List = state[listId];
             currentList.items.push({
                 name: itemName, itemId, listId, isArchived: false
             })
@@ -40,9 +34,9 @@ const ListReducer = (state = {}, action) => {
             }
         }
 
-        case DELETE_LIST: {
+        case BoardDataActionTypes.DELETE_LIST: {
             const newState = {...state}
-            delete newState[action.payload];
+            delete newState[action.payload.toString()];
             return {
                 ...newState
             }

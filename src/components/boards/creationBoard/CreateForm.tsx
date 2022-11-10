@@ -1,7 +1,12 @@
-import React, {useState} from 'react';
+import React, {Dispatch, FC, FormEvent, useState} from 'react';
 import styled from "styled-components";
-import submitBoard from "@/actions/submitBoard";
+import submitBoard from "@/store/actions/submitBoard";
 import {connect} from "react-redux";
+import {SubmitBoardAction} from "@/store/types/newBoard";
+
+interface DispatchProps {
+    submitBoard: (title: string) => SubmitBoardAction
+}
 
 const Button = styled.button`
   width: 120px;
@@ -24,14 +29,13 @@ const Button = styled.button`
   }
 `
 
-
-function CreateForm({submitBoard}) {
+const CreateForm: FC<DispatchProps> = ({submitBoard}) => {
     const [state, setState] = useState('');
-    const changeInputHandler = (event) => {
-        setState(event.target.value);
+    const changeInputHandler = (event: FormEvent<HTMLInputElement>) => {
+        setState(event.currentTarget.value);
     }
 
-    const submitHandler = event => {
+    const submitHandler = (event: FormEvent) => {
         event.preventDefault();
 
         const title = state.trim();

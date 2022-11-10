@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { connect } from 'react-redux';
 import { ItemInput, StyledForm } from "@/components/boards/styles/styledCard";
-import submitItem from "@/actions/submitItem";
+import submitItem from "@/store/actions/submitItem";
 import Item from "@/components/boards/activeBoard/items/Item";
 
 const CreateItem = ({activeBoardData, submitItem, listId}) => {

@@ -1,9 +1,4 @@
-import {
-    SELECT_ACTIVE_BOARD,
-    SELECT_ACTIVE_BOARD_SUCCESS,
-    ENABLE_LIST_EDIT_MODE,
-    DISABLE_LIST_EDIT_MODE
-} from '@/actions/types';
+import {ActiveBoard, ActiveBoardAction, ActiveBoardTypes} from "@/store/types/boardData";
 
 const initialState = {
     title: '',
@@ -12,9 +7,9 @@ const initialState = {
     isEditingList: false,
 }
 
-export default function activeBoardReducer(state = initialState, action) {
+export default function activeBoardReducer(state: ActiveBoard = initialState, action: ActiveBoardAction): ActiveBoard {
     switch (action.type) {
-        case SELECT_ACTIVE_BOARD:
+        case ActiveBoardTypes.SELECT_ACTIVE_BOARD:
             return {
                 ...state,
                 title: action.payload.title,
@@ -22,19 +17,19 @@ export default function activeBoardReducer(state = initialState, action) {
                 isFetching: true
             }
 
-        case SELECT_ACTIVE_BOARD_SUCCESS:
+        case ActiveBoardTypes.SELECT_ACTIVE_BOARD_SUCCESS:
             return {
                 ...state,
                 isFetching: false
             }
 
-        case ENABLE_LIST_EDIT_MODE:
+        case ActiveBoardTypes.ENABLE_LIST_EDIT_MODE:
             return {
                 ...state,
                 isEditingList: true
             }
 
-        case DISABLE_LIST_EDIT_MODE:
+        case ActiveBoardTypes.DISABLE_LIST_EDIT_MODE:
             return {
                 ...state,
                 isEditingList: false

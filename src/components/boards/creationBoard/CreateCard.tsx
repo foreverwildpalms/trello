@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import { Card, Title } from '../styles/styledCard';
 import { connect } from 'react-redux';
-import creatingBoard from '@/actions/creatingBoard'
+import creatingBoard from '@/store/actions/creatingBoard'
 
 interface DispatchProps {
     creatingBoard: () => {
@@ -16,4 +16,4 @@ const CreateCard: FC<DispatchProps> = ({ creatingBoard }) => {
     </Card>
 }
 
-export default connect<null, DispatchProps>(null, { creatingBoard })(CreateCard);
+export default connect(null, { creatingBoard })(CreateCard);

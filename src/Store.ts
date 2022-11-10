@@ -1,5 +1,5 @@
 import {applyMiddleware, createStore} from 'redux';
-import RootReducer from "@/reducers/rootReducer";
+import RootReducer from "@/store/reducers/rootReducer";
 import thunk from "redux-thunk";
 import { getData, setData } from "@/utils/dataLocalStorage";
 import throttle from 'lodash/throttle';

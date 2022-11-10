@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
-import selectActiveBoard from "@/actions/selectActiveBoard";
-import enableListEditMode from "@/actions/enableListEditMode";
+import selectActiveBoard from "@/store/actions/selectActiveBoard";
+import enableListEditMode from "@/store/actions/enableListEditMode";
 import {useParams} from "react-router-dom";
 import { ActiveTitle, ListWrapper } from "@/components/boards/styles/styledActivePage"
 import CreateList from "@/components/boards/activeBoard/list/CreateList";

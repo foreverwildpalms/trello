@@ -1,7 +1,7 @@
 import React from 'react';
 import { DeleteBtn } from '@/components/boards/styles/styledActivePage';
 import { connect } from 'react-redux';
-import deleteBoard from "@/actions/deleteBoard";
+import deleteBoard from "@/store/actions/deleteBoard";
 import {Link} from "react-router-dom";
 
 const DeleteBoard = ({id, deleteBoard}) => {

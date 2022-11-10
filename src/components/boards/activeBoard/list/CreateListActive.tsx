@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import closeIcon from "@/assets/closeIcon.svg";
-import disableListEditMode from "@/actions/disableListEditMode";
-import submitList from "@/actions/submitList";
+import disableListEditMode from "@/store/actions/disableListEditMode";
+import submitList from "@/store/actions/submitList";
 import { connect } from 'react-redux';
 import {
     List,

@@ -1,11 +1,18 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { Card, Title, Top, CloseBoardIcon, Body, NameBoard } from '../styles/styledCard';
 import closeIcon from "@/assets/closeIcon.svg";
 import CreateForm from "@/components/boards/creationBoard/CreateForm";
 import { connect } from 'react-redux';
-import cancelCreatingBoard from "@/actions/cancelCreatingBoard";
+import cancelCreatingBoard from "@/store/actions/cancelCreatingBoard";
 
-function CreateCardActive({cancelCreatingBoard}) {
+interface DispatchProps {
+    cancelCreatingBoard: () => {
+        type: string,
+        payload: boolean
+    }
+}
+
+const CreateCardActive: FC<DispatchProps> = ({cancelCreatingBoard}) => {
     return (
         <Card>
             <Top>

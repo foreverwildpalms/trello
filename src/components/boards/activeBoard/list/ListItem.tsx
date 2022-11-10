@@ -2,7 +2,7 @@ import React from 'react';
 import { List, DeleteListBtn, ListTitle } from "@/components/boards/styles/styledCard";
 import CreateItem from "@/components/boards/activeBoard/items/CreateItem";
 import { connect } from 'react-redux';
-import deleteList from "@/actions/deleteList";
+import deleteList from "@/store/actions/deleteList";
 
 const ListItem = ({ id, name, deleteList }) => {
     return (
