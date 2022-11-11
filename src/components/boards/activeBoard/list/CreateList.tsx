@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {AddListIcon, List} from "@/components/boards/styles/styledCard";
 
-const CreateList = ({onClick}) => {
+interface ICreateList {
+    onClick: () => void
+}
+
+const CreateList: FC<ICreateList> = ({onClick}) => {
     return (
         <List onClick={onClick}>
             <AddListIcon>

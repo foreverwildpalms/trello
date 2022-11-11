@@ -12,13 +12,9 @@ interface DeleteBoardAction {
     payload: string
 }
 
-interface PutBoardAction {
+export interface PutBoardAction {
     type: CollectionActionTypes.PUT_BOARD_INTO_COLLECTION,
-    payload: {
-        id: string,
-        title: string,
-        data: {}
-    }
+    payload: BoardState
 }
 export type BoardAction = DeleteBoardAction | PutBoardAction;
 

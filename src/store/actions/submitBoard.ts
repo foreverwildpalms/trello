@@ -1,10 +1,10 @@
 import Store from "@/Store";
 import { Dispatch } from "react";
-import {CollectionActionTypes} from "@/store/types/collectionOfBoards";
-import {BoardActionTypes} from "@/store/types/newBoard";
+import {CollectionActionTypes, PutBoardAction} from "@/store/types/collectionOfBoards";
+import {BoardActionTypes, SubmitBoardAction} from "@/store/types/newBoard";
 
 export default function submitBoard(title: string) {
-    return (dispatch: Dispatch<any>) => {
+    return (dispatch: Dispatch<SubmitBoardAction | PutBoardAction>) => {
         dispatch({ type: BoardActionTypes.SUBMIT_BOARD, payload: title });
 
         const newBoard = {
@@ -15,6 +15,6 @@ export default function submitBoard(title: string) {
         dispatch({ type: CollectionActionTypes.PUT_BOARD_INTO_COLLECTION, payload: {
             ...newBoard,
             data: {}
-        } });
+        }});
     }
 }

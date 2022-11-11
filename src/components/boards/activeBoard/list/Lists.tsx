@@ -1,17 +1,22 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { connect } from 'react-redux'
 import ListItem from "./ListItem";
-import mapValues from 'lodash/mapValues';
+import {RootState} from "@/store/types/root";
+import {ILists} from "@/store/types/boardData";
 
-const Lists = ({ activeBoardData }) => {
+interface IListsProps {
+    activeBoardData: {
+        listItems: ILists
+    }
+}
+
+const Lists: FC<IListsProps> = ({ activeBoardData }) => {
     const renderListItems = () => {
-        const mappedList = mapValues(activeBoardData.listItems, list => list.name); // ?
-        const mappedKeys = Object.keys(mappedList)
-
-        return mappedKeys.map((id) => {
-            return <ListItem id={id} key={id} name={mappedList[id]} />
+        const lists = activeBoardData.listItems;
+        const listsKeys = Object.keys(lists);
+        return listsKeys.map((key) => {
+            return <ListItem id={lists[key].id} key={lists[key].id} name={lists[key].name} />
         })
-
     }
 
     return (
@@ -21,8 +26,10 @@ const Lists = ({ activeBoardData }) => {
     );
 }
 
-function mapStateToProps({ activeBoardData }) {
-    return { activeBoardData }
+function mapStateToProps(state: RootState) {
+    return {
+        activeBoardData: state.activeBoardData
+    }
 }
 
 export default connect(mapStateToProps, {})(Lists);

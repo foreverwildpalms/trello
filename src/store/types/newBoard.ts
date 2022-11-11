@@ -4,7 +4,7 @@ export enum BoardActionTypes {
     SUBMIT_BOARD = 'SUBMIT_BOARD'
 }
 
-export type BoardState = {
+export type NewBoardState = {
     isBoardOpen: boolean,
     title: string,
     id: string,

@@ -1,11 +1,11 @@
-import React, {Dispatch, FC, FormEvent, useState} from 'react';
+import React, {FC, FormEvent, useState} from 'react';
 import styled from "styled-components";
 import submitBoard from "@/store/actions/submitBoard";
 import {connect} from "react-redux";
-import {SubmitBoardAction} from "@/store/types/newBoard";
+import {CardInput} from "@/components/boards/styles/styledCard";
 
 interface DispatchProps {
-    submitBoard: (title: string) => SubmitBoardAction
+    submitBoard: (title: string) => void
 }
 
 const Button = styled.button`
@@ -37,7 +37,6 @@ const CreateForm: FC<DispatchProps> = ({submitBoard}) => {
 
     const submitHandler = (event: FormEvent) => {
         event.preventDefault();
-
         const title = state.trim();
 
         if (title) {
@@ -46,10 +45,9 @@ const CreateForm: FC<DispatchProps> = ({submitBoard}) => {
         }
     }
 
-
     return (
         <form onSubmit={submitHandler}>
-            <input
+            <CardInput
                 type="text"
                 onChange={changeInputHandler}
             />

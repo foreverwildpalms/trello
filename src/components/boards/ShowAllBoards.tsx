@@ -1,9 +1,10 @@
 import React, {FC} from 'react';
 import Board from "@/components/boards/Board";
-import {ICollection, IBoard} from "@/components/boards/types";
+import {CollectionState} from "@/store/types/collectionOfBoards";
+
 
 type IShowAllBoards = {
-    collection: ICollection
+    collection: CollectionState
 }
 
 const ShowAllBoards: FC<IShowAllBoards> = ({ collection }) => {

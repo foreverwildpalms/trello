@@ -1,15 +1,15 @@
 import uniqueId from 'lodash/uniqueId';
-import { BoardAction, BoardState, BoardActionTypes } from "@/store/types/newBoard";
+import { BoardAction, NewBoardState, BoardActionTypes } from "@/store/types/newBoard";
 
 
-const initialState: BoardState = {
+const initialState: NewBoardState = {
     isBoardOpen: false,
     title: '',
     id: '',
     success: false,
 }
 
-export default function (state: BoardState = initialState, action: BoardAction): BoardState {
+export default function (state: NewBoardState = initialState, action: BoardAction): NewBoardState {
     switch (action.type) {
         case BoardActionTypes.CREATING_BOARD:
             return {

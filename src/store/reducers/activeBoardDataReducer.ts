@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import uniqueId from 'lodash/uniqueId';
-import {ActiveBoardTypes, BoardAction, BoardDataActionTypes, List, Lists} from "@/store/types/boardData";
+import {ActiveBoardTypes, BoardAction, BoardDataActionTypes, IList, ILists} from "@/store/types/boardData";
 
 const initialState = {};
 
-const ListReducer = (state: Lists = initialState, action: BoardAction): Lists => {
+const ListReducer = (state: ILists = initialState, action: BoardAction): ILists => {
     switch (action.type) {
         case ActiveBoardTypes.SELECT_ACTIVE_BOARD:
             return action.payload.data || [];
@@ -24,7 +24,7 @@ const ListReducer = (state: Lists = initialState, action: BoardAction): Lists =>
         case BoardDataActionTypes.SUBMIT_ITEM: {
             const itemId = uniqueId("item_");
             const { listId, itemName } = action.payload;
-            const currentList: List = state[listId];
+            const currentList: IList = state[listId];
             currentList.items.push({
                 name: itemName, itemId, listId, isArchived: false
             })

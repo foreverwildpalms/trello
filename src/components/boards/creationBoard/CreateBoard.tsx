@@ -2,17 +2,11 @@ import React, {FC} from 'react';
 import { connect } from 'react-redux'
 import CreateCardActive from "@/components/boards/creationBoard/CreateCardActive";
 import CreateCard from "@/components/boards/creationBoard/CreateCard";
-import {IRootReducer} from "@/store/reducers/types";
-
-interface INewBoard {
-    isBoardOpen: boolean,
-    title: string | null,
-    id: string | null,
-    success: boolean,
-}
+import {NewBoardState} from "@/store/types/newBoard";
+import {RootState} from "@/store/types/root";
 
 interface ICreateBoard {
-    newBoard: INewBoard
+    newBoard: NewBoardState
 }
 
 const CreateBoard: FC<ICreateBoard> = ({ newBoard }) => {
@@ -21,7 +15,7 @@ const CreateBoard: FC<ICreateBoard> = ({ newBoard }) => {
         : <CreateCard />
 }
 
-const mapStateToProps = (state: IRootReducer) => {
+const mapStateToProps = (state: RootState) => {
     return {
         newBoard: state.newBoard
     }

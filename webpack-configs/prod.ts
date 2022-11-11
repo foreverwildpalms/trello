@@ -18,6 +18,7 @@ const config: WebpackConfig = {
             '.js',
             '.jsx',
             '.ts',
+            '.d.ts',
             '.tsx',
             '.jsx',
             '.json',

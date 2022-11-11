@@ -1,16 +1,26 @@
-import React, {useState} from 'react';
+import React, {FC, FormEvent, useState} from 'react';
 import { connect } from 'react-redux';
 import { ItemInput, StyledForm } from "@/components/boards/styles/styledCard";
 import submitItem from "@/store/actions/submitItem";
 import Item from "@/components/boards/activeBoard/items/Item";
+import {RootState} from "@/store/types/root";
+import {ILists} from "@/store/types/boardData";
 
-const CreateItem = ({activeBoardData, submitItem, listId}) => {
+interface ICreateItem {
+    activeBoardData: {
+        listItems: ILists
+    },
+    submitItem: (item: string, listId: string) => void,
+    listId: string
+}
+
+const CreateItem: FC<ICreateItem> = ({activeBoardData, submitItem, listId}) => {
     const [state, setState] = useState('');
-    const changeInputHandler = (event) => {
-        setState(event.target.value);
+    const changeInputHandler = (event: FormEvent<HTMLInputElement>) => {
+        setState(event.currentTarget.value);
     }
 
-    const submitHandler = event => {
+    const submitHandler = (event: FormEvent) => {
         event.preventDefault();
         const text = state.trim();
         if (text) {
@@ -18,18 +28,18 @@ const CreateItem = ({activeBoardData, submitItem, listId}) => {
             setState('');
         }
     }
+
     const renderCards = () => {
         return activeBoardData.listItems[listId].items?.map((item) => {
             return (
                 <Item
-                    key={item.id}
+                    key={item.listId}
                     title={item.name}
                     // listId={card.listId}
                 />
             )
         })
     }
-
 
     return (
         <StyledForm onSubmit={submitHandler}>
@@ -44,8 +54,10 @@ const CreateItem = ({activeBoardData, submitItem, listId}) => {
     );
 }
 
-function mapStateToProps({ activeBoardData }) {
-    return { activeBoardData }
+function mapStateToProps(state: RootState) {
+    return {
+        activeBoardData: state.activeBoardData
+    }
 }
 
 export default connect(mapStateToProps, {submitItem})(CreateItem);

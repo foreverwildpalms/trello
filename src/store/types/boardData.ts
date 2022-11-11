@@ -11,27 +11,27 @@ export enum ActiveBoardTypes {
     DISABLE_LIST_EDIT_MODE = 'DISABLE_LIST_EDIT_MODE'
 }
 
-type Item = {
+export type IItem = {
     name: string,
     itemId: string,
     listId: string,
     isArchived: boolean
 }
 
-export type List = {
+export type IList = {
     name: string,
     id: string,
-    items: Array<Item>
+    items: Array<IItem>
 }
 
-export type Lists = {
-    [key: string]: List
-}
+export type ILists = {
+    [key: string]: IList
+};
 
 export interface BoardState {
     id: string,
     title: string,
-    data: Lists
+    data: ILists
 }
 
 export interface ActiveBoard {
@@ -59,16 +59,16 @@ interface DeleteListAction {
     payload: string
 }
 
-interface SelectBoardAction {
+export interface SelectBoardAction {
     type: ActiveBoardTypes.SELECT_ACTIVE_BOARD,
     payload: BoardState
 }
 
-interface SelectBoardSuccessAction {
+export interface SelectBoardSuccessAction {
     type: ActiveBoardTypes.SELECT_ACTIVE_BOARD_SUCCESS,
 }
 
-interface EnableListAction {
+export interface EnableListAction {
     type: ActiveBoardTypes.ENABLE_LIST_EDIT_MODE,
     payload: true
 }

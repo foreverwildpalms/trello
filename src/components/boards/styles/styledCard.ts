@@ -33,6 +33,18 @@ export const Card = styled.div`
   }
 `;
 
+export const CardInput = styled.input`
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  border: 1px solid #807a7a;;
+  border-radius: 4px;
+  width: 100%;
+  height: 34px;
+  outline: none;
+  padding: 0 8px;
+`
+
 export const Top = styled.div`
   padding-bottom: 4px;
   display: flex;

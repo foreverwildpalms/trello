@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { ItemText } from "@/components/boards/styles/styledCard";
 
-const Item = ({title}) => {
+interface IItem {
+    title: string
+}
+
+const Item: FC<IItem> = ({title}) => {
     return (
         <ItemText>{title}</ItemText>
     );

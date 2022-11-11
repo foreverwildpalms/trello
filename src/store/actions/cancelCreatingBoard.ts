@@ -1,4 +1,4 @@
-import {BoardActionTypes} from "@/store/types/newBoard";
+import {BoardActionTypes} from "../types/newBoard";
 
 export default function cancelCreatingBoard() {
     return {

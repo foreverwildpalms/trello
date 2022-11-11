@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {FC, useState} from 'react';
 import closeIcon from "@/assets/closeIcon.svg";
 import disableListEditMode from "@/store/actions/disableListEditMode";
 import submitList from "@/store/actions/submitList";
@@ -13,7 +13,12 @@ import {
     StyledForm
 } from "@/components/boards/styles/styledCard";
 
-const CreateListActive = ({submitList, disableListEditMode}) => {
+interface ICreateListActive {
+    submitList: (name: string) => void,
+    disableListEditMode: () => void
+}
+
+const CreateListActive: FC<ICreateListActive> = ({submitList, disableListEditMode}) => {
     const [state, setState] = useState('');
     const changeInputHandler = (event) => {
         setState(event.target.value);

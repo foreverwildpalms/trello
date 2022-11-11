@@ -3,13 +3,14 @@ import ShowAllBoards from "@/components/boards/ShowAllBoards";
 import CreateBoard from "@/components/boards/creationBoard/CreateBoard";
 import { connect } from 'react-redux'
 import { WrapOfCards } from "@/components/boards/styles/styledCard"
-import {ICollection} from "@/components/boards/types";
+import {CollectionState} from "@/store/types/collectionOfBoards";
+import {RootState} from "@/store/types/root";
 
 type IBoards = {
-    collection: ICollection
+    collection: CollectionState
 }
 
-const Boards: FC<IBoards> = ({collection}) => {
+const Boards: FC<IBoards> = ({collection }) => {
     return (
         <WrapOfCards>
             <CreateBoard />
@@ -18,9 +19,9 @@ const Boards: FC<IBoards> = ({collection}) => {
     )
 }
 
-const mapStateToProps = ({ collection }) => {
+const mapStateToProps = (state: RootState) => {
     return {
-        collection
+        collection: state.collection
     }
 }
 

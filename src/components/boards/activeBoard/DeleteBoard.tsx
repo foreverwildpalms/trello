@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {FC} from 'react';
 import { DeleteBtn } from '@/components/boards/styles/styledActivePage';
 import { connect } from 'react-redux';
 import deleteBoard from "@/store/actions/deleteBoard";
 import {Link} from "react-router-dom";
 
-const DeleteBoard = ({id, deleteBoard}) => {
+interface IDeleteBoard {
+    id: string,
+    deleteBoard: (id: string) => void
+}
+
+const DeleteBoard: FC<IDeleteBoard> = ({id, deleteBoard}) => {
     return (
         <Link to={`/`}>
             <DeleteBtn onClick={() => deleteBoard(id)}>
