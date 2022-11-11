@@ -3,6 +3,6 @@ Simple trello with React
 
 to do:
 - drag and drop
-- delete lists and items
+- delete items
 - complete items
 - styles
