@@ -1,4 +1,4 @@
-import Index from "@/store";
+import store from "@/store";
 import { Dispatch } from "react";
 import {CollectionActionTypes, PutBoardAction} from "@/store/types/collectionOfBoards";
 import {BoardActionTypes, SubmitBoardAction} from "@/store/types/newBoard";
@@ -8,8 +8,8 @@ export default function submitBoard(title: string) {
         dispatch({ type: BoardActionTypes.SUBMIT_BOARD, payload: title });
 
         const newBoard = {
-            id: Index.getState().newBoard.id,
-            title: Index.getState().newBoard.title
+            id: store.getState().newBoard.id,
+            title: store.getState().newBoard.title
         }
 
         dispatch({ type: CollectionActionTypes.PUT_BOARD_INTO_COLLECTION, payload: {
