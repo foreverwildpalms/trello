@@ -8,19 +8,19 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 const persistedState = getData();
 const middleware = applyMiddleware(thunk);
 
-const Store = createStore(
+const store = createStore(
     RootReducer,
     persistedState,
     composeWithDevTools(middleware),
 );
 
-Store.subscribe(throttle(() => {
+store.subscribe(throttle(() => {
     setData({
-        collection: Store.getState().collection,
-        activeBoard: Store.getState().activeBoard,
-        newBoard: Store.getState().newBoard,
-        activeBoardData: Store.getState().activeBoardData,
+        collection: store.getState().collection,
+        activeBoard: store.getState().activeBoard,
+        newBoard: store.getState().newBoard,
+        activeBoardData: store.getState().activeBoardData,
     })
 }, 1000));
 
-export default Store;
+export default store;
