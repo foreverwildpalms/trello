@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import { List, DeleteListBtn, ListTitle } from "@/components/boards/styles/styledCard";
-import CreateItem from "@/components/boards/activeBoard/items/CreateItem";
+import CreateItem from "@/components/boards/items/CreateItem";
 import { deleteList } from "@/store/reducers/activeBoardDataSlice";
 import { useAppDispatch } from "@/store";
 

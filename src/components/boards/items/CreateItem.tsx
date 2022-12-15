@@ -1,6 +1,6 @@
 import React, {FC, FormEvent, useState} from 'react';
 import { ItemInput, StyledForm } from "@/components/boards/styles/styledCard";
-import Item from "@/components/boards/activeBoard/items/Item";
+import Item from "@/components/boards/items/Item";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { activeBoardDataSelector } from "@/store/selectors";
 import addItem from "@/utils/async/addItem";
