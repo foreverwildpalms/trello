@@ -149,28 +149,3 @@ export const DeleteListBtn = styled.div`
   color: #868585;
   cursor: pointer;
 `
-
-// ITEMS
-
-export const ItemInput = styled.input`
-  font-family: 'Manrope', sans-serif;
-  font-weight: 400;
-  font-size: 13px;
-  margin-top: 15px;
-  border: none;
-  border-radius: 4px;
-  width: 100%;
-  height: 34px;
-  outline:none;
-  padding: 0 8px;
-`
-
-export const ItemText = styled.p`
-  font-family: 'Manrope', sans-serif;
-  font-weight: 400;
-  font-size: 13px;
-  margin: 4px 0;
-  color: #4d4d4d;
-`
-
-

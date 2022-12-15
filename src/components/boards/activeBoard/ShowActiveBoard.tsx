@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import { enableListEditMode } from '@/store/reducers/activeBoardSlice';
 import { useParams } from "react-router-dom";
 import { ActiveTitle, ListWrapper } from "@/components/boards/styles/styledActivePage"
-import CreateList from "@/components/boards/lists/CreateList";
-import CreateListActive from "@/components/boards/lists/CreateListActive";
-import Lists from "@/components/boards/lists";
+import CreateList from "@/components/lists/CreateList";
+import CreateListActive from "@/components/lists/CreateListActive";
+import Lists from "@/components/lists";
 import DeleteBoard from "@/components/boards/activeBoard/DeleteBoard";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { activeBoardSelector } from "@/store/selectors";
