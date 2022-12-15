@@ -35,7 +35,7 @@ const App = () => {
                 <Header />
                 <Routes>
                     <Route path="/" element={<Boards />} />
-                    <Route path="/b/:id" element={<ShowActiveBoard />} />
+                    <Route path=":id" element={<ShowActiveBoard />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </StyledContainer>

@@ -9,7 +9,7 @@ type IBoard = {
 
 const Board: FC<IBoard> = ({id, title}) => {
     return (
-        <Link to={`/b/${id}`}>
+        <Link to={`/${id}`}>
             <Card>
                 <Title>{title}</Title>
             </Card>
