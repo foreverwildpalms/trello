@@ -19,6 +19,13 @@ const collectionSlice = createSlice({
                 }
             })
         },
+        putItemIntoCollection(state, action) {
+            state.collection.map((board) => {
+                if (board.id === action.payload.boardId) {
+                    board.data[action.payload.listId].items = action.payload.items
+                }
+            })
+        },
         deleteBoard(state, action) {
             const newState = state.collection.filter((board) => board.id !== action.payload)
             state.collection = newState;
@@ -26,6 +33,11 @@ const collectionSlice = createSlice({
     }
 });
 
-export const { putBoardIntoCollection, putListIntoCollection, deleteBoard } = collectionSlice.actions;
+export const {
+    putBoardIntoCollection,
+    putListIntoCollection,
+    putItemIntoCollection,
+    deleteBoard
+} = collectionSlice.actions;
 
 export default collectionSlice.reducer;

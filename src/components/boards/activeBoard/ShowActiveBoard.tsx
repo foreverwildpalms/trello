@@ -31,7 +31,7 @@ const ShowActiveBoard = () => {
         <>
             <ActiveTitle>{activeBoard.title}</ActiveTitle>
             <ListWrapper>
-                <Lists />
+                <Lists idBoard={activeBoard.id} />
                 {activeBoard.isEditingList
                     ? <CreateListActive idBoard={activeBoard.id} />
                     : <CreateList onClick={() => dispatch(enableListEditMode())} />

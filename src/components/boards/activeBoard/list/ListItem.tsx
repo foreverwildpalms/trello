@@ -6,17 +6,18 @@ import { useAppDispatch } from "@/store";
 
 interface IListItem {
     id: string,
+    idBoard: string,
     name: string,
 }
 
-const ListItem: FC<IListItem> = ({ id, name }) => {
+const ListItem: FC<IListItem> = ({ id, idBoard, name }) => {
     const dispatch = useAppDispatch();
 
     return (
         <>
             <List>
                 <ListTitle>{name}</ListTitle>
-                <CreateItem listId={id} />
+                <CreateItem boardId={idBoard} listId={id} />
                 <DeleteListBtn onClick={() => dispatch(deleteList(id))}>Удалить список</DeleteListBtn>
             </List>
         </>

@@ -1,15 +1,16 @@
 import React, {FC, FormEvent, useState} from 'react';
 import { ItemInput, StyledForm } from "@/components/boards/styles/styledCard";
-import { submitItem } from "@/store/reducers/activeBoardDataSlice";
 import Item from "@/components/boards/activeBoard/items/Item";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { activeBoardDataSelector } from "@/store/selectors";
+import addItem from "@/utils/async/addItem";
 
 interface ICreateItem {
-    listId: string
+    listId: string,
+    boardId: string
 }
 
-const CreateItem: FC<ICreateItem> = ({ listId }) => {
+const CreateItem: FC<ICreateItem> = ({ listId, boardId }) => {
     const activeBoardData = useAppSelector(activeBoardDataSelector);
     const dispatch = useAppDispatch();
 
@@ -22,7 +23,7 @@ const CreateItem: FC<ICreateItem> = ({ listId }) => {
         event.preventDefault();
         const text = state.trim();
         if (text) {
-            dispatch(submitItem({ itemName: state, listId: listId }));
+            dispatch(addItem(text, listId, boardId))
             setState('');
         }
     }

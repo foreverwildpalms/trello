@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import ListItem from "./ListItem";
 import { useAppSelector } from "@/store";
 import { activeBoardDataSelector } from "@/store/selectors";
 
-const Lists = () => {
+interface IProps {
+    idBoard: string
+}
+
+const Lists: FC<IProps> = ({idBoard}) => {
     const activeBoardData = useAppSelector(activeBoardDataSelector);
 
     const renderListItems = () => {
@@ -11,7 +15,12 @@ const Lists = () => {
         const listsKeys = Object.keys(lists);
 
         return listsKeys.map((key) => {
-            return <ListItem id={lists[key].id} key={lists[key].id} name={lists[key].name} />
+            return <ListItem
+                id={lists[key].id}
+                idBoard={idBoard}
+                key={lists[key].id}
+                name={lists[key].name}
+            />
         })
     }
 
