@@ -1,20 +1,18 @@
 import React, {FC, FormEvent, useState} from 'react';
-import { connect } from 'react-redux';
 import { ItemInput, StyledForm } from "@/components/boards/styles/styledCard";
-import submitItem from "@/store/actions/submitItem";
+import { submitItem } from "@/store/reducers/activeBoardDataSlice";
 import Item from "@/components/boards/activeBoard/items/Item";
-import {RootState} from "@/store/types/root";
-import {ILists} from "@/store/types/boardData";
+import { useAppDispatch, useAppSelector } from "@/store";
+import { activeBoardDataSelector } from "@/store/selectors";
 
 interface ICreateItem {
-    activeBoardData: {
-        listItems: ILists
-    },
-    submitItem: (item: string, listId: string) => void,
     listId: string
 }
 
-const CreateItem: FC<ICreateItem> = ({activeBoardData, submitItem, listId}) => {
+const CreateItem: FC<ICreateItem> = ({ listId }) => {
+    const activeBoardData = useAppSelector(activeBoardDataSelector);
+    const dispatch = useAppDispatch();
+
     const [state, setState] = useState('');
     const changeInputHandler = (event: FormEvent<HTMLInputElement>) => {
         setState(event.currentTarget.value);
@@ -24,18 +22,17 @@ const CreateItem: FC<ICreateItem> = ({activeBoardData, submitItem, listId}) => {
         event.preventDefault();
         const text = state.trim();
         if (text) {
-            submitItem(state, listId);
+            dispatch(submitItem({ itemName: state, listId: listId }));
             setState('');
         }
     }
 
     const renderCards = () => {
-        return activeBoardData.listItems[listId].items?.map((item) => {
+        return activeBoardData[listId].items?.map((item) => {
             return (
                 <Item
                     key={item.listId}
                     title={item.name}
-                    // listId={card.listId}
                 />
             )
         })
@@ -54,10 +51,4 @@ const CreateItem: FC<ICreateItem> = ({activeBoardData, submitItem, listId}) => {
     );
 }
 
-function mapStateToProps(state: RootState) {
-    return {
-        activeBoardData: state.activeBoardData
-    }
-}
-
-export default connect(mapStateToProps, {submitItem})(CreateItem);
+export default CreateItem;

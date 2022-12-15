@@ -1,8 +1,5 @@
-import React, {FC, useState} from 'react';
-import closeIcon from "@/assets/closeIcon.svg";
-import disableListEditMode from "@/store/actions/disableListEditMode";
-import submitList from "@/store/actions/submitList";
-import { connect } from 'react-redux';
+import React, { FC, useState } from 'react';
+import { disableListEditMode } from "@/store/reducers/activeBoardSlice";
 import {
     List,
     CloseListIcon,
@@ -12,35 +9,37 @@ import {
     ListInput,
     StyledForm
 } from "@/components/boards/styles/styledCard";
+import { useAppDispatch } from "@/store";
+import addList from "@/utils/async/addLists";
 
-interface ICreateListActive {
-    submitList: (name: string) => void,
-    disableListEditMode: () => void
+interface IProps {
+    idBoard: string
 }
 
-const CreateListActive: FC<ICreateListActive> = ({submitList, disableListEditMode}) => {
+const CreateListActive: FC<IProps> = ({idBoard}) => {
     const [state, setState] = useState('');
+    const dispatch = useAppDispatch();
+
     const changeInputHandler = (event) => {
         setState(event.target.value);
-    }
+    };
 
     const submitHandler = event => {
         event.preventDefault();
         const title = state.trim();
         if (title) {
-            submitList(state);
+            dispatch(addList(title, idBoard));
             setState('');
         }
-    }
+    };
 
     return (
         <List>
             <Top>
                 <ListTitle>Новый список</ListTitle>
-                <CloseListIcon
-                    src={closeIcon}
-                    onClick={disableListEditMode}
-                />
+                <CloseListIcon onClick={() => dispatch(disableListEditMode())}>
+                    &#10006;
+                </CloseListIcon>
             </Top>
             <Body>
                 <StyledForm onSubmit={submitHandler}>
@@ -56,7 +55,4 @@ const CreateListActive: FC<ICreateListActive> = ({submitList, disableListEditMod
     );
 }
 
-export default connect(
-    null,
-    { submitList, disableListEditMode }
-)(CreateListActive);
+export default CreateListActive;

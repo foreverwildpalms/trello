@@ -1,24 +1,15 @@
-import React, {FC} from 'react';
-import { connect } from 'react-redux'
+import React from 'react';
 import CreateCardActive from "@/components/boards/creationBoard/CreateCardActive";
 import CreateCard from "@/components/boards/creationBoard/CreateCard";
-import {NewBoardState} from "@/store/types/newBoard";
-import {RootState} from "@/store/types/root";
+import { useAppSelector } from "@/store";
+import { newBoardSelector } from "@/store/selectors";
 
-interface ICreateBoard {
-    newBoard: NewBoardState
-}
+const CreateBoard = () => {
+    const newBoard = useAppSelector(newBoardSelector);
 
-const CreateBoard: FC<ICreateBoard> = ({ newBoard }) => {
     return newBoard.isBoardOpen
         ? <CreateCardActive />
         : <CreateCard />
 }
 
-const mapStateToProps = (state: RootState) => {
-    return {
-        newBoard: state.newBoard
-    }
-}
-
-export default connect(mapStateToProps, {})(CreateBoard);
+export default CreateBoard;

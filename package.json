@@ -53,13 +53,11 @@
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.4",
     "react-router-dom": "^6.4.3",
-    "redux": "^4.2.0",
-    "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.6"
   }
 }

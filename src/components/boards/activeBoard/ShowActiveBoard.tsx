@@ -1,28 +1,23 @@
-import React, {FC, useEffect} from 'react';
-import { connect } from 'react-redux'
-import selectActiveBoard from "@/store/actions/selectActiveBoard";
-import enableListEditMode from "@/store/actions/enableListEditMode";
-import {useParams} from "react-router-dom";
+import React, { useEffect } from 'react';
+import { enableListEditMode } from '@/store/reducers/activeBoardSlice';
+import { useParams } from "react-router-dom";
 import { ActiveTitle, ListWrapper } from "@/components/boards/styles/styledActivePage"
 import CreateList from "@/components/boards/activeBoard/list/CreateList";
 import CreateListActive from "@/components/boards/activeBoard/list/CreateListActive";
 import Lists from "@/components/boards/activeBoard/list/Lists";
 import DeleteBoard from "@/components/boards/activeBoard/DeleteBoard";
-import {RootState} from "@/store/types/root";
-import {ActiveBoard} from "@/store/types/boardData";
+import { useAppDispatch, useAppSelector } from "@/store";
+import { activeBoardSelector } from "@/store/selectors";
+import openBoard from "@/utils/async/openBoard";
 
-interface IShowActiveBoard {
-    activeBoard: ActiveBoard,
-    selectActiveBoard: (id: string) => void,
-    enableListEditMode: () => void,
-}
-
-const ShowActiveBoard: FC<IShowActiveBoard> = ({activeBoard, selectActiveBoard, enableListEditMode}) => {
+const ShowActiveBoard = () => {
+    const activeBoard = useAppSelector(activeBoardSelector);
+    const dispatch = useAppDispatch();
     const params = useParams();
 
     useEffect(() => {
         if (params.id) {
-            selectActiveBoard(params.id)
+            dispatch(openBoard(params.id));
         }
     }, []);
 
@@ -38,8 +33,8 @@ const ShowActiveBoard: FC<IShowActiveBoard> = ({activeBoard, selectActiveBoard, 
             <ListWrapper>
                 <Lists />
                 {activeBoard.isEditingList
-                    ? <CreateListActive />
-                    : <CreateList onClick={enableListEditMode} />
+                    ? <CreateListActive idBoard={activeBoard.id} />
+                    : <CreateList onClick={() => dispatch(enableListEditMode())} />
                 }
             </ListWrapper>
             <DeleteBoard id={activeBoard.id} />
@@ -47,14 +42,4 @@ const ShowActiveBoard: FC<IShowActiveBoard> = ({activeBoard, selectActiveBoard, 
     )
 }
 
-function mapStateToProps(state: RootState) {
-    return {
-        activeBoard: state.activeBoard
-    }
-}
-
-export default connect(
-    mapStateToProps,
-    {selectActiveBoard, enableListEditMode
-    }
-)(ShowActiveBoard);
+export default ShowActiveBoard;

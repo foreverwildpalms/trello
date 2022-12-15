@@ -1,28 +1,20 @@
-import React, {FC} from 'react';
+import React from 'react';
 import ShowAllBoards from "@/components/boards/ShowAllBoards";
 import CreateBoard from "@/components/boards/creationBoard/CreateBoard";
-import { connect } from 'react-redux'
-import { WrapOfCards } from "@/components/boards/styles/styledCard"
-import {CollectionState} from "@/store/types/collectionOfBoards";
-import {RootState} from "@/store/types/root";
+import { WrapOfCards } from "@/components/boards/styles/styledCard";
+import { useAppSelector } from "@/store";
+import { collectionSelector } from "@/store/selectors";
 
-type IBoards = {
-    collection: CollectionState
-}
 
-const Boards: FC<IBoards> = ({collection }) => {
+const Boards = () => {
+    const collection = useAppSelector(collectionSelector);
+
     return (
         <WrapOfCards>
             <CreateBoard />
-            {!!collection.length && <ShowAllBoards collection={collection} />}
+            {!!collection.length && <ShowAllBoards />}
         </WrapOfCards>
     )
 }
 
-const mapStateToProps = (state: RootState) => {
-    return {
-        collection: state.collection
-    }
-}
-
-export default connect(mapStateToProps, {})(Boards);
+export default Boards;

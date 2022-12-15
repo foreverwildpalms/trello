@@ -1,19 +1,15 @@
-import React, {FC} from 'react';
-import { connect } from 'react-redux'
+import React from 'react';
 import ListItem from "./ListItem";
-import {RootState} from "@/store/types/root";
-import {ILists} from "@/store/types/boardData";
+import { useAppSelector } from "@/store";
+import { activeBoardDataSelector } from "@/store/selectors";
 
-interface IListsProps {
-    activeBoardData: {
-        listItems: ILists
-    }
-}
+const Lists = () => {
+    const activeBoardData = useAppSelector(activeBoardDataSelector);
 
-const Lists: FC<IListsProps> = ({ activeBoardData }) => {
     const renderListItems = () => {
-        const lists = activeBoardData.listItems;
+        const lists = activeBoardData;
         const listsKeys = Object.keys(lists);
+
         return listsKeys.map((key) => {
             return <ListItem id={lists[key].id} key={lists[key].id} name={lists[key].name} />
         })
@@ -26,10 +22,4 @@ const Lists: FC<IListsProps> = ({ activeBoardData }) => {
     );
 }
 
-function mapStateToProps(state: RootState) {
-    return {
-        activeBoardData: state.activeBoardData
-    }
-}
-
-export default connect(mapStateToProps, {})(Lists);
+export default Lists;

@@ -1,12 +1,8 @@
-import React, {FC, FormEvent, useState} from 'react';
+import React, { FormEvent, useState } from 'react';
 import styled from "styled-components";
-import submitBoard from "@/store/actions/submitBoard";
-import {connect} from "react-redux";
-import {CardInput} from "@/components/boards/styles/styledCard";
-
-interface DispatchProps {
-    submitBoard: (title: string) => void
-}
+import { CardInput } from "@/components/boards/styles/styledCard";
+import { useAppDispatch } from "@/store";
+import addBoard from "@/utils/async/addBoard";
 
 const Button = styled.button`
   width: 120px;
@@ -29,8 +25,10 @@ const Button = styled.button`
   }
 `
 
-const CreateForm: FC<DispatchProps> = ({submitBoard}) => {
+const CreateForm = () => {
     const [state, setState] = useState('');
+    const dispatch = useAppDispatch();
+
     const changeInputHandler = (event: FormEvent<HTMLInputElement>) => {
         setState(event.currentTarget.value);
     }
@@ -40,7 +38,7 @@ const CreateForm: FC<DispatchProps> = ({submitBoard}) => {
         const title = state.trim();
 
         if (title) {
-            submitBoard(title);
+            dispatch(addBoard(title));
             setState('');
         }
     }
@@ -56,4 +54,4 @@ const CreateForm: FC<DispatchProps> = ({submitBoard}) => {
     );
 }
 
-export default connect(null, {submitBoard})(CreateForm);
+export default CreateForm;

@@ -1,13 +1,11 @@
-import React, {FC} from 'react';
+import React from 'react';
 import Board from "@/components/boards/Board";
-import {CollectionState} from "@/store/types/collectionOfBoards";
+import { useAppSelector } from "@/store";
+import { collectionSelector } from "@/store/selectors";
 
+const ShowAllBoards = () => {
+    const collection = useAppSelector(collectionSelector);
 
-type IShowAllBoards = {
-    collection: CollectionState
-}
-
-const ShowAllBoards: FC<IShowAllBoards> = ({ collection }) => {
     return (
     <>
         {collection.map((board) => {

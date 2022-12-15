@@ -1,22 +1,23 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 import { DeleteBtn } from '@/components/boards/styles/styledActivePage';
-import { connect } from 'react-redux';
-import deleteBoard from "@/store/actions/deleteBoard";
-import {Link} from "react-router-dom";
+import { deleteBoard } from '@/store/reducers/collectionSlice';
+import { Link } from "react-router-dom";
+import { useAppDispatch } from "@/store";
 
 interface IDeleteBoard {
     id: string,
-    deleteBoard: (id: string) => void
 }
 
-const DeleteBoard: FC<IDeleteBoard> = ({id, deleteBoard}) => {
+const DeleteBoard: FC<IDeleteBoard> = ({id}) => {
+    const dispatch = useAppDispatch();
+
     return (
         <Link to={`/`}>
-            <DeleteBtn onClick={() => deleteBoard(id)}>
+            <DeleteBtn onClick={() => dispatch(deleteBoard(id))}>
                 Удалить доску
             </DeleteBtn>
         </Link>
     );
 }
 
-export default connect(null,   { deleteBoard })(DeleteBoard);
+export default DeleteBoard;

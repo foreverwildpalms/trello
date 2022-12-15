@@ -1,19 +1,16 @@
-import React, {FC} from 'react';
-import { Card, Title } from '../styles/styledCard';
-import { connect } from 'react-redux';
-import creatingBoard from '@/store/actions/creatingBoard'
+import React from 'react';
+import { Card, Title } from '@/components/boards/styles/styledCard';
+import { creatingBoard } from '@/store/reducers/newBoardSlice';
+import { useAppDispatch } from "@/store";
 
-interface DispatchProps {
-    creatingBoard: () => {
-        type: string,
-        payload: boolean
-    }
-}
+const CreateCard = () => {
+    const dispatch = useAppDispatch();
 
-const CreateCard: FC<DispatchProps> = ({ creatingBoard }) => {
-    return <Card onClick={creatingBoard}>
+    return <Card onClick={() => {
+        dispatch(creatingBoard());
+    }}>
         <Title>Создай новую доску...</Title>
     </Card>
 }
 
-export default connect(null, { creatingBoard })(CreateCard);
+export default CreateCard;

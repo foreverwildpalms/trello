@@ -107,10 +107,10 @@ export const List = styled.div`
   }
 `
 
-export const CloseListIcon = styled.img`
+export const CloseListIcon = styled.p`
   width: 20px;
   height: 20px;
-  padding: 5px;
+  color: #4d4d4d;
   transition: all 200ms ease-in-out;
 `
 export const ListTitle = styled.h5`

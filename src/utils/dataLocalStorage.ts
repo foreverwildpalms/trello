@@ -1,11 +1,13 @@
 export const setData = boards => {
     try {
-        boards.collection.map( board => {
-            if (board.id === boards.activeBoard.id) {
-                board.data = boards.activeBoardData.listItems
-            }
-        })
-        const serializeActiveBoardState = JSON.stringify(boards)
+        // if (boards.collection.length) {
+        //     boards.collection.map( board => {
+        //         if (board.id === boards.activeBoard.id) {
+        //             board.data = boards.activeBoardData
+        //         }
+        //     })
+        // }
+        const serializeActiveBoardState = JSON.stringify(boards);
         localStorage.setItem('boardsCollection', serializeActiveBoardState);
     }
     catch (err) {

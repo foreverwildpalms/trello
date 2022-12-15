@@ -1,26 +1,25 @@
-import {applyMiddleware, createStore} from 'redux';
-import RootReducer from "@/store/reducers/rootReducer";
-import thunk from "redux-thunk";
-import { getData, setData } from "@/utils/dataLocalStorage";
-import throttle from 'lodash/throttle';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import newBoardSlice from "@/store/reducers/newBoardSlice";
+import activeBoardSlice from "@/store/reducers/activeBoardSlice";
+import collectionSlice from "@/store/reducers/collectionSlice";
+import activeBoardDataSlice from "@/store/reducers/activeBoardDataSlice";
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
-const persistedState = getData();
-const middleware = applyMiddleware(thunk);
+const rootReducer = combineReducers({
+    newBoard: newBoardSlice,
+    activeBoard: activeBoardSlice,
+    collection: collectionSlice,
+    activeBoardData: activeBoardDataSlice,
+});
 
-const store = createStore(
-    RootReducer,
-    persistedState,
-    composeWithDevTools(middleware),
-);
+const store = configureStore({
+    reducer: rootReducer,
+});
 
-store.subscribe(throttle(() => {
-    setData({
-        collection: store.getState().collection,
-        activeBoard: store.getState().activeBoard,
-        newBoard: store.getState().newBoard,
-        activeBoardData: store.getState().activeBoardData,
-    })
-}, 1000));
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppDispatch = typeof store.dispatch;
+
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+export const useAppDispatch = () => useDispatch<AppDispatch>();
 
 export default store;

@@ -1,25 +1,20 @@
-import React, {FC} from 'react';
-import { Card, Title, Top, CloseBoardIcon, Body, NameBoard } from '../styles/styledCard';
+import React from 'react';
+import { Card, Title, Top, CloseBoardIcon, Body, NameBoard } from '@/components/boards/styles/styledCard';
 import closeIcon from "@/assets/closeIcon.svg";
 import CreateForm from "@/components/boards/creationBoard/CreateForm";
-import { connect } from 'react-redux';
-import cancelCreatingBoard from "@/store/actions/cancelCreatingBoard";
+import {useAppDispatch} from "@/store";
+import { cancelCreatingBoard } from '@/store/reducers/newBoardSlice';
 
-interface DispatchProps {
-    cancelCreatingBoard: () => {
-        type: string,
-        payload: boolean
-    }
-}
+const CreateCardActive = () => {
+    const dispatch = useAppDispatch();
 
-const CreateCardActive: FC<DispatchProps> = ({cancelCreatingBoard}) => {
     return (
         <Card>
             <Top>
                 <Title>Новая доска</Title>
                 <CloseBoardIcon
                     src={closeIcon}
-                    onClick={cancelCreatingBoard}
+                    onClick={() => dispatch(cancelCreatingBoard())}
                 />
             </Top>
             <Body>
@@ -30,4 +25,4 @@ const CreateCardActive: FC<DispatchProps> = ({cancelCreatingBoard}) => {
     );
 }
 
-export default connect(null, { cancelCreatingBoard })(CreateCardActive);
+export default CreateCardActive;

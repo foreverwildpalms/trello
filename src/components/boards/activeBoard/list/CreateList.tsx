@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {AddListIcon, List} from "@/components/boards/styles/styledCard";
+import { AddListIcon, List } from "@/components/boards/styles/styledCard";
 
 interface ICreateList {
     onClick: () => void
