@@ -15,7 +15,7 @@ export type IItem = {
     name: string,
     itemId: string,
     listId: string,
-    isArchived: boolean
+    isCompleted: boolean
 }
 
 export type IList = {

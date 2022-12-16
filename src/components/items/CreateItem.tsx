@@ -34,7 +34,8 @@ const CreateItem: FC<ICreateItem> = ({ listId, boardId }) => {
             return (
                 <Item
                     key={item.listId}
-                    title={item.name}
+                    item={item}
+                    boardId={boardId}
                 />
             )
         })

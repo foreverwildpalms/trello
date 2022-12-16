@@ -26,7 +26,7 @@ store.subscribe(throttle(() => {
         newBoard: store.getState().newBoard.newBoard,
         activeBoardData: store.getState().activeBoardData.listItems,
     })
-}, 1000));
+}, 700));
 
 const App = () => {
     return (

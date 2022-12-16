@@ -1,15 +1,32 @@
-import React, {FC} from 'react';
-import {Checkbox, ItemText, ItemWrap} from "@/components/items/styles";
+import React, { FC, useState } from 'react';
+import { Checkbox, ItemText, ItemWrap } from "@/components/items/styles";
+import { useAppDispatch } from "@/store";
+import { IItem } from "@/store/types/boardData";
+import changeItem from "@/utils/async/changeItem";
 
-interface IItem {
-    title: string
+interface IProps {
+    item: IItem,
+    boardId: string
 }
 
-const Item: FC<IItem> = ({title}) => {
+const Item: FC<IProps> = ({item, boardId}) => {
+    const { name, itemId, listId, isCompleted } = item;
+    const [value, setValue] = useState(isCompleted);
+    const dispatch = useAppDispatch();
+
+    const handleInput = () => {
+        setValue((prev) => !prev);
+        dispatch(changeItem(boardId, listId, itemId, isCompleted));
+    }
+
     return (
         <ItemWrap>
-            <Checkbox type="checkbox" />
-            <ItemText>{title}</ItemText>
+            <Checkbox
+                type="checkbox"
+                checked={value}
+                onChange={handleInput}
+            />
+            <ItemText>{name}</ItemText>
         </ItemWrap>
     );
 }
