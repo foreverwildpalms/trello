@@ -10,7 +10,7 @@ import { useAppDispatch, useAppSelector } from "@/store";
 import { activeBoardSelector } from "@/store/selectors";
 import openBoard from "@/utils/async/openBoard";
 
-const ShowActiveBoard = () => {
+const ActiveBoard = () => {
     const activeBoard = useAppSelector(activeBoardSelector);
     const dispatch = useAppDispatch();
     const params = useParams();
@@ -42,4 +42,4 @@ const ShowActiveBoard = () => {
     )
 }
 
-export default ShowActiveBoard;
+export default ActiveBoard;

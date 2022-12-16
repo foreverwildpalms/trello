@@ -1,9 +1,9 @@
 import React from 'react';
-import ShowAllBoards from "@/components/boards/ShowAllBoards";
 import CreateBoard from "@/components/boards/creationBoard/CreateBoard";
 import { WrapOfCards } from "@/components/boards/styles/styledCard";
 import { useAppSelector } from "@/store";
 import { collectionSelector } from "@/store/selectors";
+import Board from "@/components/boards/Board";
 
 
 const Boards = () => {
@@ -12,7 +12,9 @@ const Boards = () => {
     return (
         <WrapOfCards>
             <CreateBoard />
-            {!!collection.length && <ShowAllBoards />}
+            {!!collection.length && collection.map((board) => {
+                    return <Board key={board.id} id={board.id} title={board.title} />
+                })}
         </WrapOfCards>
     )
 }

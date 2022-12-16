@@ -3,8 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import Header from "@/components/header";
 import NotFound from "@/components/NotFound";
-import Boards from "@/components/boards/Boards";
-import ShowActiveBoard from "@/components/boards/activeBoard/ShowActiveBoard";
+import Boards from "@/components/boards";
+import ActiveBoard from "@/components/activeBoard";
 import { throttle } from "lodash";
 import { setData } from "@/utils/localStorage/dataLocalStorage";
 import store from "@/store";
@@ -35,7 +35,7 @@ const App = () => {
                 <Header />
                 <Routes>
                     <Route path="/" element={<Boards />} />
-                    <Route path=":id" element={<ShowActiveBoard />} />
+                    <Route path=":id" element={<ActiveBoard />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </StyledContainer>
