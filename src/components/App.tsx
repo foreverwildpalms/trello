@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import NotFound from "@/components/NotFound";
 import Boards from "@/components/boards/Boards";
 import ShowActiveBoard from "@/components/boards/activeBoard/ShowActiveBoard";
 import { throttle } from "lodash";
-import { setData } from "@/utils/dataLocalStorage";
+import { setData } from "@/utils/localStorage/dataLocalStorage";
 import store from "@/store";
 
 const StyledApp = styled.div`

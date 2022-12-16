@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { DeleteBtn } from '@/components/boards/styles/styledActivePage';
-import { deleteBoard } from '@/store/reducers/collectionSlice';
+import { deleteBoard } from '@/store/slices/collectionSlice';
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "@/store";
 

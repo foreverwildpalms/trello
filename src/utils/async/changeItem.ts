@@ -1,5 +1,5 @@
-import { putChangeItemIntoCollection } from "@/store/reducers/collectionSlice";
-import { changeItem } from "@/store/reducers/activeBoardDataSlice";
+import { putChangeItemIntoCollection } from "@/store/slices/collectionSlice";
+import { changeItem } from "@/store/slices/activeBoardDataSlice";
 
 const addItem = (boardId, listId, itemId, isCompleted) => {
     return async (dispatch) => {

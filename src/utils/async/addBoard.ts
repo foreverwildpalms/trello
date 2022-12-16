@@ -1,5 +1,5 @@
-import { submitBoard } from "@/store/reducers/newBoardSlice";
-import { putBoardIntoCollection } from "@/store/reducers/collectionSlice";
+import { submitBoard } from "@/store/slices/newBoardSlice";
+import { putBoardIntoCollection } from "@/store/slices/collectionSlice";
 import store from "@/store";
 
 const addBoard = (title) => {

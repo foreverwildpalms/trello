@@ -1,6 +1,6 @@
-import { putListIntoCollection } from "@/store/reducers/collectionSlice";
+import { putListIntoCollection } from "@/store/slices/collectionSlice";
 import store from "@/store";
-import {submitList} from "@/store/reducers/activeBoardDataSlice";
+import {submitList} from "@/store/slices/activeBoardDataSlice";
 
 const addList = (title, idBoard) => {
     return async (dispatch) => {

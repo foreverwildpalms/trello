@@ -1,4 +1,4 @@
-import React, {FC, FormEvent, useState} from 'react';
+import React, { FC, FormEvent, useState } from 'react';
 import { StyledForm } from "@/components/boards/styles/styledCard";
 import { ItemInput } from "@/components/items/styles";
 import Item from "@/components/items/Item";

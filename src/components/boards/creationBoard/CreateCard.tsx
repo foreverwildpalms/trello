@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Title } from '@/components/boards/styles/styledCard';
-import { creatingBoard } from '@/store/reducers/newBoardSlice';
+import { creatingBoard } from '@/store/slices/newBoardSlice';
 import { useAppDispatch } from "@/store";
 
 const CreateCard = () => {

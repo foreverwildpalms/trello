@@ -3,7 +3,7 @@ import { Card, Title, Top, CloseBoardIcon, Body, NameBoard } from '@/components/
 import closeIcon from "@/assets/closeIcon.svg";
 import CreateForm from "@/components/boards/creationBoard/CreateForm";
 import {useAppDispatch} from "@/store";
-import { cancelCreatingBoard } from '@/store/reducers/newBoardSlice';
+import { cancelCreatingBoard } from '@/store/slices/newBoardSlice';
 
 const CreateCardActive = () => {
     const dispatch = useAppDispatch();

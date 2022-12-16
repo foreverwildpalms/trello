@@ -1,5 +1,5 @@
-import { deleteItemFromCollection } from "@/store/reducers/collectionSlice";
-import { deleteItem } from "@/store/reducers/activeBoardDataSlice";
+import { deleteItemFromCollection } from "@/store/slices/collectionSlice";
+import { deleteItem } from "@/store/slices/activeBoardDataSlice";
 import store from "@/store";
 
 const addItem = (boardId, listId, itemId) => {

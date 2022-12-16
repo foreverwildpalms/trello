@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { enableListEditMode } from '@/store/reducers/activeBoardSlice';
+import { enableListEditMode } from '@/store/slices/activeBoardSlice';
 import { useParams } from "react-router-dom";
 import { ActiveTitle, ListWrapper } from "@/components/boards/styles/styledActivePage"
 import CreateList from "@/components/lists/CreateList";

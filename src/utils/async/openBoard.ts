@@ -1,6 +1,6 @@
 import store from "@/store";
-import { selectActiveBoard, selectActiveBoardSuccess } from "@/store/reducers/activeBoardSlice";
-import {initLists} from "@/store/reducers/activeBoardDataSlice";
+import { selectActiveBoard, selectActiveBoardSuccess } from "@/store/slices/activeBoardSlice";
+import {initLists} from "@/store/slices/activeBoardDataSlice";
 
 const openBoard = (id) => {
     return async (dispatch) => {

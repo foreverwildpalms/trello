@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { CollectionState } from "@/store/types/collectionOfBoards";
-import { getData } from "@/utils/dataLocalStorage";
+import { getData } from "@/utils/localStorage/dataLocalStorage";
 
 const collectionSlice = createSlice({
     name: 'collection',

@@ -1,8 +1,8 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
-import newBoardSlice from "@/store/reducers/newBoardSlice";
-import activeBoardSlice from "@/store/reducers/activeBoardSlice";
-import collectionSlice from "@/store/reducers/collectionSlice";
-import activeBoardDataSlice from "@/store/reducers/activeBoardDataSlice";
+import newBoardSlice from "@/store/slices/newBoardSlice";
+import activeBoardSlice from "@/store/slices/activeBoardSlice";
+import collectionSlice from "@/store/slices/collectionSlice";
+import activeBoardDataSlice from "@/store/slices/activeBoardDataSlice";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
 const rootReducer = combineReducers({

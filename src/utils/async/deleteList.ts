@@ -1,5 +1,5 @@
-import { deleteListFromCollection } from "@/store/reducers/collectionSlice";
-import { deleteList } from "@/store/reducers/activeBoardDataSlice";
+import { deleteListFromCollection } from "@/store/slices/collectionSlice";
+import { deleteList } from "@/store/slices/activeBoardDataSlice";
 import store from "@/store";
 
 const addList = (id, idBoard) => {

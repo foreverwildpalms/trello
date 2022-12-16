@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { disableListEditMode } from "@/store/reducers/activeBoardSlice";
+import { disableListEditMode } from "@/store/slices/activeBoardSlice";
 import {
     List,
     CloseListIcon,
