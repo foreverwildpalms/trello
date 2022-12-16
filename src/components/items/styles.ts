@@ -14,6 +14,7 @@ export const ItemInput = styled.input`
 `
 
 export const ItemWrap = styled.div`
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -28,6 +29,12 @@ export const ItemText = styled.p`
   font-weight: 400;
   font-size: 13px;
   margin: 4px 0;
+  color: #4d4d4d;
+`
+
+export const DeleteItemIcon = styled.p`
+  margin: 0 0 0 auto;
+  font-size: 12px;
   color: #4d4d4d;
 `
 

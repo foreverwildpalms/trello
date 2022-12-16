@@ -20,6 +20,9 @@ const ListDataSlice = createSlice({
                 items: []
             }
         },
+        deleteList(state, action) {
+            delete state.listData[action.payload.toString()];
+        },
         submitItem(state, action) {
             const itemId = uniqueId("item_");
             const { listId, itemName } = action.payload;
@@ -29,16 +32,15 @@ const ListDataSlice = createSlice({
             })
             state.listData[listId] = currentList;
         },
-        deleteList(state, action) {
-            delete state.listData[action.payload.toString()];
-        },
         changeItem(state, action) {
-            console.log(action.payload.value);
             state.listData[action.payload.listId].items.map((item) => {
                 if (item.itemId === action.payload.id) {
-                    item.isCompleted = action.payload.value
+                    item.isCompleted = action.payload.value;
                 }
             })
+        },
+        deleteItem(state, action) {
+            state.listData[action.payload.listId].items = action.payload.items;
         }
     }
 })
@@ -52,7 +54,8 @@ export const {
     submitList,
     submitItem,
     deleteList,
-    changeItem
+    changeItem,
+    deleteItem
 } = ListDataSlice.actions;
 
 export default activeBoardDataSlice;

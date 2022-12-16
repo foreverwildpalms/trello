@@ -7,7 +7,6 @@ const addList = (id, idBoard) => {
         await dispatch(deleteList(id));
 
         const lists = store.getState().activeBoardData.listItems.listData;
-
         await dispatch(deleteListFromCollection({
             id: idBoard,
             data: lists

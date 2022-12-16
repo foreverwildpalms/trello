@@ -33,7 +33,7 @@ const CreateItem: FC<ICreateItem> = ({ listId, boardId }) => {
         return activeBoardData[listId].items?.map((item) => {
             return (
                 <Item
-                    key={item.listId}
+                    key={item.itemId}
                     item={item}
                     boardId={boardId}
                 />

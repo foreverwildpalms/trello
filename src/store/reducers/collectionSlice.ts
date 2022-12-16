@@ -47,6 +47,13 @@ const collectionSlice = createSlice({
                     board.data = action.payload.data;
                 }
             })
+        },
+        deleteItemFromCollection(state, action) {
+            state.collection.map((board) => {
+                if (board.id === action.payload.boardId) {
+                    board.data[action.payload.listId].items = action.payload.items;
+                }
+            })
         }
     }
 });
@@ -57,7 +64,8 @@ export const {
     putItemIntoCollection,
     putChangeItemIntoCollection,
     deleteBoard,
-    deleteListFromCollection
+    deleteListFromCollection,
+    deleteItemFromCollection
 } = collectionSlice.actions;
 
 export default collectionSlice.reducer;
