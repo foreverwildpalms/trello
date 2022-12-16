@@ -7,7 +7,7 @@ export const ActiveTitle = styled.h1`
   text-align: center;
 `
 export const ListWrapper = styled.div`
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
